@@ -44,14 +44,12 @@ class App extends Component {
         </header>
         <main>
           <LaptopCustomizeList 
-            features={this.props.features}
             selected={this.state.selected}
             updateFeature={this.updateFeature}
           />
           
           <Cart 
             selected={this.state.selected}
-            features={this.props.features}
           />
         </main>
       </div>
