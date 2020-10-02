@@ -1,36 +1,27 @@
 import React from 'react';
 import CartItem from './CartItem/CartItem';
+import Total from './Total/Total';
 
 function Cart(props){
-    const USCurrencyFormat = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD'
-    });
-    const total = Object.keys(props.selected).reduce(
-        (acc, curr) => acc + props.selected[curr].cost,
-        0
-    );
     return (
         <div>
             <section className="main__summary">
                 <h2>Your cart</h2>
                 {
-                    Object.entries(props.selected).map((items) =>{
+                    Object.entries(props.selected).map((items, index) =>{
                         return(
                             <CartItem 
-                            selected={props.selected}
-                            features={props.features}
-                            items={items}
+                                selected={props.selected}
+                                items={items}
+                                key={index}
                             />
                         )
                     })  
+                    
                 }
-                <div className="summary__total">
-                    <div className="summary__total__label">Total</div>
-                    <div className="summary__total__value">
-                        {USCurrencyFormat.format(total)}
-                    </div>
-                </div>
+                <Total 
+                    selected={props.selected}
+                />
             </section>
         </div>
     )
