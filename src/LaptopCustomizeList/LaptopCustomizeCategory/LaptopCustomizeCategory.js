@@ -11,13 +11,14 @@ class LaptopCustomizeCategory extends Component {
                     </legend>
                 </fieldset>
                 {
-                    this.props.items.map((item) => {
+                    this.props.items.map((item, index) => {
                         return (
                             <LaptopItem 
                                 selected={this.props.selected}
                                 updateFeature={this.props.updateFeature}
                                 item={item}
                                 feature={this.props.feature}
+                                key={index}
                             />
                         )
                     })
